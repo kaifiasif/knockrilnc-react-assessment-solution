@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+const baseURL ='http://localhost:3001'
+
 const Context = React.createContext();
 
 const reducer = (state, action) => {
@@ -33,13 +35,13 @@ export default class Provider extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:3001/candidates`)
+      .get(`${baseURL}/candidates`)
       .then((res) => this.setState({ candidates: res.data }));
     axios
-      .get(`http://localhost:3001/applications`)
+      .get(`${baseURL}/applications`)
       .then((res) => this.setState({ applications: res.data }));
     axios
-      .get(`http://localhost:3001/questions`)
+      .get(`${baseURL}/questions`)
       .then((res) => this.setState({ questions: res.data }));
   }
 

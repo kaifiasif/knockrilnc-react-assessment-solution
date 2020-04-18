@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Consumer } from '../context';
 import axios from 'axios';
+const baseURL ='http://localhost:3001'
 
 export default class Comments extends Component {
   state = {
@@ -21,7 +22,7 @@ export default class Comments extends Component {
 
     axios
       .put(
-        `http://localhost:3001/applications/${this.props.appId}`,
+        `${baseURL}/applications/${this.props.appId}`,
         application
       )
       .then((res) => console.log(res));
